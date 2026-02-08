@@ -1,65 +1,124 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, TrendingUp, BarChart3, Lock } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
+      {/* Header */}
+      <header className="border-b border-slate-700/50 bg-slate-950/50 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 text-2xl font-bold">
+            <span className="text-3xl">💰</span>
+            <span>ExpenseTracker</span>
+          </div>
+          <div className="flex gap-3">
+            <Button 
+              variant="ghost" 
+              className="text-white hover:bg-slate-700"
+              asChild
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <Link href="/sign-in">Sign In</Link>
+            </Button>
+            <Button 
+              className="bg-blue-600 hover:bg-blue-700"
+              asChild
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <Link href="/sign-up">Get Started</Link>
+            </Button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </header>
+
+      {/* Hero Section */}
+      <main className="flex-1">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            {/* Left Content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
+                  Take Control of Your{" "}
+                  <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    Finances
+                  </span>
+                </h1>
+                <p className="text-xl text-slate-400 leading-relaxed">
+                  Track your income and expenses effortlessly. Visualize your spending patterns with beautiful charts and gain insights into your financial habits.
+                </p>
+              </div>
+
+              <div className="flex gap-4 pt-4">
+                <Button 
+                  size="lg" 
+                  className="bg-blue-600 hover:bg-blue-700 gap-2"
+                  asChild
+                >
+                  <Link href="/sign-up">
+                    Start Free Today <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline" 
+                  className="border-slate-600 text-white hover:bg-slate-700"
+                  asChild
+                >
+                  <Link href="/sign-in">Sign In</Link>
+                </Button>
+              </div>
+            </div>
+
+            {/* Right Side - Features Preview */}
+            <div className="grid grid-cols-1 gap-4">
+              <div className="rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-6 space-y-4 group hover:border-blue-500/50 transition-all">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-blue-500/10">
+                    <TrendingUp className="h-6 w-6 text-blue-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Track Everything</h3>
+                </div>
+                <p className="text-slate-400">Log income and expenses with categories, dates, and descriptions.</p>
+              </div>
+
+              <div className="rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-6 space-y-4 group hover:border-cyan-500/50 transition-all">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-cyan-500/10">
+                    <BarChart3 className="h-6 w-6 text-cyan-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Visualize Spending</h3>
+                </div>
+                <p className="text-slate-400">Beautiful charts show your spending breakdown and monthly trends.</p>
+              </div>
+
+              <div className="rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-6 space-y-4 group hover:border-emerald-500/50 transition-all">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-lg bg-emerald-500/10">
+                    <Lock className="h-6 w-6 text-emerald-400" />
+                  </div>
+                  <h3 className="text-lg font-semibold">Secure & Private</h3>
+                </div>
+                <p className="text-slate-400">Your data is encrypted and belongs only to you. No ads.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-700/50 bg-slate-950/50 py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-8 sm:flex-row">
+            <div className="flex items-center gap-2 text-lg font-semibold">
+              <span className="text-2xl">💰</span>
+              <span>ExpenseTracker</span>
+            </div>
+            <p className="text-slate-400 text-sm">
+              © 2026 ExpenseTracker. Built with Next.js, Prisma & Clerk.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
