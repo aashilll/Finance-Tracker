@@ -25,7 +25,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Trash2, Edit } from "lucide-react";
-import { TRANSACTION_CATEGORIES } from "@/lib/utils";
 
 // Serialized transaction type with number instead of Decimal
 type SerializedTransaction = Omit<Transaction, 'amount'> & { amount: number };
@@ -67,7 +66,7 @@ export function TransactionTable({
       await deleteTransaction(id);
       toast.success("Transaction deleted successfully");
       router.refresh(); // Refresh to show updated list
-    } catch (error) {
+    } catch {
       toast.error("Failed to delete transaction");
     } finally {
       setIsDeleting(null);
@@ -84,7 +83,7 @@ export function TransactionTable({
           onChange={(e) => setSearch(e.target.value)}
           className="border-slate-600 bg-slate-900 text-white placeholder-slate-500"
         />
-        <Select value={filterType} onValueChange={(value: any) => setFilterType(value)}>
+        <Select value={filterType} onValueChange={(value: "ALL" | TransactionType) => setFilterType(value)}>
           <SelectTrigger className="w-full border-slate-600 bg-slate-900 text-white sm:w-40">
             <SelectValue />
           </SelectTrigger>

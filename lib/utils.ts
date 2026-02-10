@@ -5,13 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function currencyFormat(value: number | string | any): string {
-  // Handle Prisma Decimal type
-  const num = typeof value === "object" && value !== null && typeof value.toNumber === "function"
-    ? value.toNumber()
-    : typeof value === "string"
-    ? parseFloat(value)
-    : value;
+export function currencyFormat(value: number | string): string {
+  const num = typeof value === "string" ? parseFloat(value) : value;
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -45,3 +40,4 @@ export const TRANSACTION_CATEGORIES = [
   "Investments",
   "Other",
 ];
+

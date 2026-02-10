@@ -7,7 +7,7 @@ export default async function TransactionsPage() {
     const transactions = await getTransactions();
 
     return <TransactionsPageClient initialTransactions={transactions} />;
-  } catch (error) {
+  } catch {
     return (
       <div className="flex items-center justify-center py-12">
         <p className="text-red-400">Failed to load transactions</p>

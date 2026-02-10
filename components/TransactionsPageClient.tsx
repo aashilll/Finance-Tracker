@@ -20,7 +20,6 @@ export function TransactionsPageClient({
   initialTransactions,
 }: TransactionsPageClientProps) {
   const router = useRouter();
-  const [transactions, setTransactions] = useState(initialTransactions);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] =
     useState<SerializedTransaction | null>(null);
@@ -76,7 +75,7 @@ export function TransactionsPageClient({
         </Button>
       </div>
 
-      <TransactionTable transactions={transactions} onEdit={handleEdit} />
+      <TransactionTable transactions={initialTransactions} onEdit={handleEdit} />
 
       <TransactionForm
         open={isFormOpen}
