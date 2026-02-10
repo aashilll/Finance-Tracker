@@ -147,7 +147,7 @@ export function TransactionTable({
                     }`}
                   >
                     {tx.type === "INCOME" ? "+" : "-"}
-                    {currencyFormat(typeof tx.amount === 'object' ? parseFloat(tx.amount.toString()) : tx.amount)}
+                    {currencyFormat(tx.amount)}
                   </TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
