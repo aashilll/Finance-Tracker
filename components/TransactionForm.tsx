@@ -37,6 +37,9 @@ import {
 import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
+// Serialized transaction type with number instead of Decimal
+type SerializedTransaction = Omit<Transaction, 'amount'> & { amount: number };
+
 const transactionSchema = z.object({
   type: z.enum(["INCOME", "EXPENSE"] as const),
   category: z.string().min(1, "Category is required"),
@@ -52,7 +55,7 @@ type TransactionFormData = z.infer<typeof transactionSchema>;
 interface TransactionFormProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  transaction?: Transaction | null;
+  transaction?: SerializedTransaction | null;
   onSuccess?: () => void;
 }
 

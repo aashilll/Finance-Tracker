@@ -2,8 +2,11 @@ import { currencyFormat } from "@/lib/utils";
 import { Transaction } from "@prisma/client";
 import { format } from "date-fns";
 
+// Serialized transaction type with number instead of Decimal
+type SerializedTransaction = Omit<Transaction, 'amount'> & { amount: number };
+
 interface RecentTransactionsProps {
-  transactions: Transaction[];
+  transactions: SerializedTransaction[];
 }
 
 export function RecentTransactions({ transactions }: RecentTransactionsProps) {

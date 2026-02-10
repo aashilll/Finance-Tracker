@@ -9,8 +9,11 @@ import { Button } from "@/components/ui/button";
 import { Plus, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
+// Serialized transaction type with number instead of Decimal
+type SerializedTransaction = Omit<Transaction, 'amount'> & { amount: number };
+
 interface TransactionsPageClientProps {
-  initialTransactions: Transaction[];
+  initialTransactions: SerializedTransaction[];
 }
 
 export function TransactionsPageClient({
@@ -20,9 +23,9 @@ export function TransactionsPageClient({
   const [transactions, setTransactions] = useState(initialTransactions);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [selectedTransaction, setSelectedTransaction] =
-    useState<Transaction | null>(null);
+    useState<SerializedTransaction | null>(null);
 
-  const handleEdit = (tx: Transaction) => {
+  const handleEdit = (tx: SerializedTransaction) => {
     setSelectedTransaction(tx);
     setIsFormOpen(true);
   };

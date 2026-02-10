@@ -27,9 +27,12 @@ import {
 import { Trash2, Edit } from "lucide-react";
 import { TRANSACTION_CATEGORIES } from "@/lib/utils";
 
+// Serialized transaction type with number instead of Decimal
+type SerializedTransaction = Omit<Transaction, 'amount'> & { amount: number };
+
 interface TransactionTableProps {
-  transactions: Transaction[];
-  onEdit: (transaction: Transaction) => void;
+  transactions: SerializedTransaction[];
+  onEdit: (transaction: SerializedTransaction) => void;
 }
 
 export function TransactionTable({
