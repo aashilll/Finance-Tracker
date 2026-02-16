@@ -12,24 +12,26 @@ export default async function Home() {
     redirect("/dashboard");
   }
   return (
-    <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 text-white overflow-x-hidden">
       {/* Header */}
       <header className="border-b border-slate-700/50 bg-slate-950/50 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-2 text-2xl font-bold">
-            <span className="text-3xl">💰</span>
-            <span>ExpenseTracker</span>
+          <div className="flex items-center gap-2 text-xl sm:text-2xl font-bold">
+            <span className="text-2xl sm:text-3xl">💰</span>
+            <span className="truncate">ExpenseTracker</span>
           </div>
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             <Button 
               variant="ghost" 
-              className="text-white hover:bg-slate-700"
+              size="sm"
+              className="text-white hover:bg-slate-700 text-sm sm:text-base"
               asChild
             >
               <Link href="/sign-in">Sign In</Link>
             </Button>
             <Button 
-              className="bg-blue-600 hover:bg-blue-700"
+              size="sm"
+              className="bg-blue-600 hover:bg-blue-700 text-sm sm:text-base whitespace-nowrap"
               asChild
             >
               <Link href="/sign-up">Get Started</Link>
@@ -45,21 +47,21 @@ export default async function Home() {
             {/* Left Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <h1 className="text-5xl sm:text-6xl font-bold tracking-tight">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
                   Take Control of Your{" "}
                   <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
                     Finances
                   </span>
                 </h1>
-                <p className="text-xl text-slate-400 leading-relaxed">
+                <p className="text-base sm:text-xl text-slate-400 leading-relaxed">
                   Track your income and expenses effortlessly. Visualize your spending patterns with beautiful charts and gain insights into your financial habits.
                 </p>
               </div>
 
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                 <Button 
                   size="lg" 
-                  className="bg-blue-600 hover:bg-blue-700 gap-2"
+                  className="bg-blue-600 hover:bg-blue-700 gap-2 w-full sm:w-auto"
                   asChild
                 >
                   <Link href="/sign-up">
@@ -69,7 +71,7 @@ export default async function Home() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-slate-600 text-white hover:bg-slate-700"
+                  className="border-slate-600 text-white hover:bg-slate-700 w-full sm:w-auto"
                   asChild
                 >
                   <Link href="/sign-in">Sign In</Link>

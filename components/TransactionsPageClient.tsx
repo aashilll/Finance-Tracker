@@ -45,20 +45,20 @@ export function TransactionsPageClient({
   return (
     <div className="space-y-6">
       {/* Header with Back Button */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="space-y-4 sm:space-y-0 sm:flex sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3 sm:gap-4">
           <Link href="/dashboard">
             <Button
               variant="ghost"
               size="icon"
-              className="text-slate-400 hover:text-white hover:bg-slate-800"
+              className="text-slate-400 hover:text-white hover:bg-slate-800 flex-shrink-0"
             >
               <ArrowLeft className="h-5 w-5" />
             </Button>
           </Link>
           <div>
-            <h1 className="text-3xl font-bold text-white">Transactions</h1>
-            <p className="mt-1 text-slate-400">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white">Transactions</h1>
+            <p className="mt-1 text-sm sm:text-base text-slate-400">
               Manage all your income and expenses
             </p>
           </div>
@@ -68,7 +68,7 @@ export function TransactionsPageClient({
             setSelectedTransaction(null);
             setIsFormOpen(true);
           }}
-          className="gap-2 bg-blue-600 hover:bg-blue-700 text-white"
+          className="gap-2 bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto whitespace-nowrap"
         >
           <Plus className="h-4 w-4" />
           Add Transaction
