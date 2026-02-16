@@ -41,3 +41,4 @@ export const TRANSACTION_CATEGORIES = [
   "Other",
 ];
 
+
